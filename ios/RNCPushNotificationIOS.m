@@ -284,6 +284,10 @@ RCT_EXPORT_METHOD(scheduleLocalNotification:(UILocalNotification *)notification)
 RCT_EXPORT_METHOD(addNotificationRequest:(UNNotificationRequest*)request)
 {
     NSString *imageUrl = request.content.userInfo[@"image"];
+    NSMutableDictionary *fcmInfo = request.content.userInfo[@"fcm_options"];
+    if(fcmInfo != nil && fcmInfo[@"image"] != nil) {
+        imageUrl = fcmInfo[@"image"];
+    }
     if(imageUrl != nil) {
         [self loadAttachmentForUrlString:imageUrl completionHandler:^(UNNotificationAttachment *attachment) {
             if (attachment) {
