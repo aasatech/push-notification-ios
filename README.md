@@ -231,6 +231,16 @@ export const App = () => {
 
 ## Methods
 
+### Local Notification Image
+- `userInfo` : An object containing additional notification data (optional). To display local notification image please add `image` property
+
+```JS
+    
+    userInfo: {
+        image: "https://example.com/image.png"
+    }
+```
+
 ### `presentLocalNotification()`
 
 ```jsx
